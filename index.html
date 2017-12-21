@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="Santa!!">
+    <title>Secret Santa</title>
+    <link rel="icon" type="image/png" href="resources/images/favicon.png">
+    <meta property="og:site_name" content="Spars" />
+    <meta property="og:title" content="Spars" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="resources/images/og-image.png" />
+    <meta itemprop="name" content="Santa!" />
+    <meta itemprop="url" content="index.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <span class="header_title">🎄 Let the games begin! 🎄</span>
+        <div class="mid_container">
+
+            <div class="company_name_row">
+                <span id="company_name_label">Welcome Anil!</span>
+                <div id="subtitle_paragraph">Let's take you on a small treasure hunt ⚡⚡ <br> Beware, the path is a treacherous one, <br> for it's reward is hard won :) </div>
+            </div>
+
+
+
+            <div id="first_clue" style="display: none">
+                <div id="subtitle_paragraph"> World travel in 10 minutes, look delighted! <br> start from the man in red and blue, lighted, <br> travel from saadi dilli to bay area to queen's palace, steadily, <br> entering them below, the first alphabet of each place you encounter,
+                    carefully, <br> wave to the natives inside or you shall not pass, <br> oh oh oh, didn’t expect the secret santa to be of this class? </div>
+                <input type="text" id="clue" maxlength="13" style="text-transform:uppercase">
+                <div id="showcount"><span id="shownumerals">0</span> / 13</div>
+
+            </div>
+
+            <div class="email_wrapper">
+                <button id="cta1" type="button">Start<img src="resources/images/arrow-right.svg" alt="" id="button-arrow-right"> </button>
+                <button id="cta2" type="button" style="display:none;">Unlock! </button>
+            </div>
+        </div>
+</body>
+
+<script src="resources/js/jquery.min.js"></script>
+<script>
+    var clue = 0;
+    $("#cta1")
+        .click(
+            function() {
+                $('.header_title').fadeOut(500, function() {
+                    $(this).text('First Clue').fadeIn(500);
+
+                });
+
+                $('#company_name_label').fadeOut(500, function() {
+                    $(this).text('Go Anil!').fadeIn(500);
+                    $('#subtitle_paragraph').slideUp();
+                    $("#first_clue").slideDown();
+                    $("#cta1").hide();
+                    $("#cta2").fadeIn(500);
+                });
+            }
+
+        );
+
+    $('#clue').on('keyup', function() {
+
+        var val = $(this).val();
+        if (val.match(/[^a-zA-Z]/g)) {
+            $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+
+        }
+
+        $('#shownumerals').text(this.value.length);
+    });
+
+    $("#cta2")
+        .click(
+            function() {
+
+                if ($("#clue").val().length == 13) {
+
+                    if ($("#clue").val() == "NSHMJSTBDTSBL") {
+                        console.log('sucess');
+                    }
+                } else {
+
+                }
+
+            });
+</script>
+
+</html>
