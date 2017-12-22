@@ -177,7 +177,7 @@
 
                 event.preventDefault();
 
-                if ($("#second_clue_input").val() == "hohohogaya" || $("#second_clue_input").val() == "HOHOHOGAYA") {
+                if ($("#second_clue_input").val().length == 10) {
 
                     $('.header_title').fadeOut(500, function() {
                         $(this).text('🎉 Congratulations! 🎉').fadeIn(500);
