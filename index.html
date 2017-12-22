@@ -81,7 +81,8 @@
     var clue = 0;
     $("#cta1")
         .on('click touchstart',
-            function() {
+            function(event) {
+                event.preventDefault();
                 $('.header_title').fadeOut(500, function() {
                     $(this).text('First Clue 🕵️').fadeIn(500);
 
@@ -120,7 +121,9 @@
 
     $("#cta2")
         .on('click touchstart',
-            function() {
+            function(event) {
+
+                event.preventDefault();
 
                 console.log($("#clue").val().length)
                 console.log($("#clue").val())
@@ -148,7 +151,9 @@
 
     $("#cta3")
         .on('click touchstart',
-            function() {
+            function(event) {
+
+                event.preventDefault();
 
                 $('.header_title').fadeOut(500, function() {
                     $(this).text('Second Clue 🕵️').fadeIn(500);
@@ -168,32 +173,31 @@
 
     $("#cta4")
         .on('click touchstart',
-            function() {
+            function(event) {
 
-                if ($("#second_clue_input").val().length === 10) {
+                event.preventDefault();
 
+                if ($("#second_clue_input").val() == "hohohogaya" || $("#second_clue_input").val() == "HOHOHOGAYA") {
 
-                    if ($("#second_clue_input").val() == "hohohogaya" || $("#second_clue_input").val() == "HOHOHOGAYA") {
+                    $('.header_title').fadeOut(500, function() {
+                        $(this).text('🎉 Congratulations! 🎉').fadeIn(500);
 
-                        $('.header_title').fadeOut(500, function() {
-                            $(this).text('🎉 Congratulations! 🎉').fadeIn(500);
-
-                            $('#company_name_label').fadeOut(500, function() {
-                                $(this).text('Badass in the house!').fadeIn(500);
-                                $("#second_clue").slideUp();
-                                $("#final").slideDown();
-                                $("#cta4").hide();
-                            });
-
+                        $('#company_name_label').fadeOut(500, function() {
+                            $(this).text('Badass in the house!').fadeIn(500);
+                            $("#second_clue").slideUp();
+                            $("#final").slideDown();
+                            $("#cta4").hide();
                         });
 
+                    });
 
-                    }
-                } else {
 
                 }
+            }
 
-            });
+
+
+        );
 </script>
 
 </html>
