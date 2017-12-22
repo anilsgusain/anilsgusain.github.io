@@ -80,7 +80,7 @@
 <script>
     var clue = 0;
     $("#cta1")
-        .click(
+        .on('click touchstart',
             function() {
                 $('.header_title').fadeOut(500, function() {
                     $(this).text('First Clue 🕵️').fadeIn(500);
@@ -119,7 +119,7 @@
     });
 
     $("#cta2")
-        .click(
+        .on('click touchstart',
             function() {
 
                 console.log($("#clue").val().length)
@@ -147,7 +147,7 @@
 
 
     $("#cta3")
-        .click(
+        .on('click touchstart',
             function() {
 
                 $('.header_title').fadeOut(500, function() {
@@ -167,7 +167,7 @@
 
 
     $("#cta4")
-        .click(
+        .on('click touchstart',
             function() {
 
                 if ($("#second_clue_input").val().length === 10) {
