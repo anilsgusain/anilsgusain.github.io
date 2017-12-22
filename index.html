@@ -36,16 +36,39 @@
 
 
             <div id="first_clue" style="display: none">
-                <div id="subtitle_paragraph"> World travel in 10 minutes, look delighted! <br> start from the man in red and blue, lighted, <br> travel from saadi dilli to bay area to queen's palace, steadily, <br> entering them below, the first alphabet of each place you encounter,
-                    carefully, <br> wave to the natives inside or you shall not pass, <br> oh oh oh, didn’t expect the secret santa to be of this class? </div>
+                <div id="message"> World travel in 10 minutes, look delighted! <br> start from the man in red and blue, lighted, <br> travel from saadi dilli to bay area to queen's palace, steadily, <br> entering them below, the first alphabet of each place you encounter,
+                    carefully, <br> wave to the natives inside for the secret clue or you shall not pass, <br> oh oh oh, didn’t expect the secret santa to be of this class? </div>
                 <input type="text" id="clue" maxlength="13" style="text-transform:uppercase">
                 <div id="showcount"><span id="shownumerals">0</span> / 13</div>
 
             </div>
 
+            <div id="intermessage" style="display: none">
+                <div id="message"> You are awesome :D Your first gift will be found in the unlabelled office! Ready for the next clue?</div>
+            </div>
+
+            <div id="second_clue" style="display: none">
+                <div id="message"> oh, didn’t expect the secret santa to be of this class? </div>
+                <input type="text" id="second_clue_input" maxlength="5" style="text-transform:uppercase">
+
+                <div id="showcount"><span id="shownumerals">0</span> / 5</div>
+
+            </div>
+
+
+            <div id="final" style="display: none">
+                <div id="message"> You have finished the treacherous path succesfully! As your final reward you have won: </div>
+                <img src="resources/images/bitcoin.gif" id="btc">
+            </div>
+
+
+
             <div class="email_wrapper">
-                <button id="cta1" type="button">Start<img src="resources/images/arrow-right.svg" alt="" id="button-arrow-right"> </button>
-                <button id="cta2" type="button" style="display:none;">Unlock! </button>
+                <button id="cta1" class="CTA" type="button">Start<img src="resources/images/arrow-right.svg" alt="" id="button-arrow-right"> </button>
+                <button id="cta2" class="CTA" type="button" style="display:none;">Unlock! </button>
+                <button id="cta3" class="CTA" type="button" style="display:none;">Born Ready <img src="resources/images/arrow-right.svg" alt="" id="button-arrow-right"></button>
+                <button id="cta4" class="CTA" type="button" style="display:none;">Unlock! </button>
+
             </div>
         </div>
 </body>
@@ -79,7 +102,6 @@
             $(this).val(val.replace(/[^a-zA-Z]/g, ''));
 
         }
-
         $('#shownumerals').text(this.value.length);
     });
 
@@ -89,8 +111,75 @@
 
                 if ($("#clue").val().length == 13) {
 
+
                     if ($("#clue").val() == "NSHMJSTBDTSBL") {
-                        console.log('sucess');
+
+                        $('.header_title').fadeOut(500, function() {
+                            $(this).text('Congratulations!').fadeIn(500);
+
+                            $('#company_name_label').fadeOut(500, function() {
+                                $(this).text('Way to go Anil!').fadeIn(500);
+                                $("#first_clue").slideUp();
+                                $("#intermessage").slideDown();
+                                $("#cta2").hide();
+                                $("#cta3").fadeIn(500);
+                            });
+
+                        });
+
+                    }
+                } else {
+
+                }
+
+            });
+
+
+    $("#cta3")
+        .click(
+            function() {
+
+                $('.header_title').fadeOut(500, function() {
+                    $(this).text('Second Clue').fadeIn(500);
+
+                });
+
+                $('#company_name_label').fadeOut(500, function() {
+                    $(this).text('Almost there Anil!').fadeIn(500);
+                    $('#intermessage').slideUp();
+                    $("#second_clue").slideDown();
+                    $("#cta3").hide();
+                    $("#cta4").fadeIn(500);
+                });
+
+            });
+
+
+    $("#cta4")
+        .click(
+            function() {
+
+                if ($("#second_clue_input").val().length === 5) {
+
+                    console.log($("#second_clue_input").val());
+
+
+
+                    if ($("#second_clue_input").val() == "HELLO" || $("#second_clue_input").val() == "hello") {
+
+                        $('.header_title').fadeOut(500, function() {
+                            $(this).text('Congratulations!').fadeIn(500);
+
+                            $('#company_name_label').fadeOut(500, function() {
+                                $(this).text('Badass in the house!').fadeIn(500);
+                                $("#second_clue").slideUp();
+                                $("#final").slideDown();
+                                $("#cta4").hide();
+                            });
+
+                        });
+
+
                     }
                 } else {
 
