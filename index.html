@@ -36,7 +36,7 @@
 
 
             <div id="first_clue" style="display: none">
-                <div id="message"> World travel in 10 minutes, look delighted! <br> start from the man in red and blue, lighted, <br> travel from saadi dilli to bay area to queen's palace, steadily, <br> entering them below, the first alphabet of each place you encounter,
+                <div id="message"> World travel in 10 minutes, look delighted! <br> start from the man in red and blue, lighted, <br> travel from Saadi Dilli to Bay Area to Tiananmen Square, steadily, <br> entering them below, the first alphabet of each place you encounter,
                     carefully, <br> wave to the natives inside for the secret clue or you shall not pass, <br> oh oh oh, didn’t expect the secret santa to be of this class? </div>
                 <input type="text" id="clue" maxlength="13" style="text-transform:uppercase">
                 <div id="showcount"><span id="shownumerals">0</span> / 13</div>
@@ -58,7 +58,10 @@
 
             <div id="final" style="display: none">
                 <div id="message"> You have finished the treacherous path succesfully! As your final reward you have won: </div>
-                <img src="resources/images/bitcoin.gif" id="btc">
+                <img src="resources/images/bitcoin.gif" id="btc" style="height: 40px; padding: 10px">
+                <div id="message" style="margin:0px"> To collect them check your WhatsApp! Wishing you and your family a Merry Christmas and a Happy New Year! Hope 2018 looks like this:
+                </div>
+                <img src="resources/images/money.gif" id="btc" style="width: 100%">
             </div>
 
 
@@ -80,7 +83,7 @@
         .click(
             function() {
                 $('.header_title').fadeOut(500, function() {
-                    $(this).text('First Clue').fadeIn(500);
+                    $(this).text('First Clue 🕵️').fadeIn(500);
 
                 });
 
@@ -140,7 +143,7 @@
             function() {
 
                 $('.header_title').fadeOut(500, function() {
-                    $(this).text('Second Clue').fadeIn(500);
+                    $(this).text('Second Clue 🕵️').fadeIn(500);
 
                 });
 
@@ -168,7 +171,7 @@
                     if ($("#second_clue_input").val() == "HELLO" || $("#second_clue_input").val() == "hello") {
 
                         $('.header_title').fadeOut(500, function() {
-                            $(this).text('Congratulations!').fadeIn(500);
+                            $(this).text('🎉 Congratulations! 🎉').fadeIn(500);
 
                             $('#company_name_label').fadeOut(500, function() {
                                 $(this).text('Badass in the house!').fadeIn(500);
