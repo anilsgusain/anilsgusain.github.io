@@ -38,8 +38,8 @@
             <div id="first_clue" style="display: none">
                 <div id="message"> World travel in 10 minutes, look delighted! <br> Starting Point: Mario, lighted, <br> travel from Utah to Bay Area and end at Beijing, steadily, <br> entering them below, the first alphabet of each place you encounter, carefully, <br>wave
                     to the natives inside for the secret clue or you shall not pass, <br> Ho Ho Ho, didn’t expect the secret santa to be of this class? </div>
-                <input type="text" id="clue" maxlength="14" style="text-transform:uppercase">
-                <div id="showcount"><span id="shownumerals">0</span> / 14</div>
+                <input type="text" id="clue" maxlength="15" style="text-transform:uppercase">
+                <div id="showcount"><span id="shownumerals">0</span> / 15</div>
 
             </div>
 
@@ -49,9 +49,9 @@
 
             <div id="second_clue" style="display: none">
                 <div id="message"> Go to Teapot and ask for your gift, the secret lies with him, catch my drift?</div>
-                <input type="text" id="second_clue_input" maxlength="5" style="text-transform:uppercase">
+                <input type="text" id="second_clue_input" maxlength="10" style="text-transform:uppercase">
 
-                <div id="showcount"><span id="shownumerals">0</span> / 5</div>
+                <div id="showcount"><span id="shownumerals2">0</span> / 10</div>
 
             </div>
 
@@ -108,6 +108,16 @@
         $('#shownumerals').text(this.value.length);
     });
 
+    $('#second_clue_input').on('keyup', function() {
+
+        var val = $(this).val();
+        if (val.match(/[^a-zA-Z]/g)) {
+            $(this).val(val.replace(/[^a-zA-Z]/g, ''));
+
+        }
+        $('#shownumerals2').text(this.value.length);
+    });
+
     $("#cta2")
         .click(
             function() {
@@ -162,7 +172,7 @@
         .click(
             function() {
 
-                if ($("#second_clue_input").val().length === 5) {
+                if ($("#second_clue_input").val().length === 10) {
 
 
                     if ($("#second_clue_input").val() == "hohohogaya" || $("#second_clue_input").val() == "HOHOHOGAYA") {
