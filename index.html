@@ -48,7 +48,7 @@
             </div>
 
             <div id="second_clue" style="display: none">
-                <div id="message"> Go to Teapot and ask for your gift, the secret lies with him, catch my drift?</div>
+                <div id="message"> Go to Tpot and ask for your gift, the secret lies with him, catch my drift?</div>
                 <input type="text" id="second_clue_input" maxlength="10" style="text-transform:uppercase">
 
                 <div id="showcount"><span id="shownumerals2">0</span> / 10</div>
@@ -122,26 +122,24 @@
         .click(
             function() {
 
+                console.log($("#clue").val().length)
+                console.log($("#clue").val())
+
+
                 if ($("#clue").val().length == 15) {
 
+                    $('.header_title').fadeOut(500, function() {
+                        $(this).text('Congratulations!').fadeIn(500);
 
-                    if ($("#clue").val() == "UNSHMJSTBHDTSLB" || $("#clue").val() == "unshmjstbhdtslb") {
-
-                        $('.header_title').fadeOut(500, function() {
-                            $(this).text('Congratulations!').fadeIn(500);
-
-                            $('#company_name_label').fadeOut(500, function() {
-                                $(this).text('Way to go Anil!').fadeIn(500);
-                                $("#first_clue").slideUp();
-                                $("#intermessage").slideDown();
-                                $("#cta2").hide();
-                                $("#cta3").fadeIn(500);
-                            });
-
+                        $('#company_name_label').fadeOut(500, function() {
+                            $(this).text('Way to go Anil!').fadeIn(500);
+                            $("#first_clue").slideUp();
+                            $("#intermessage").slideDown();
+                            $("#cta2").hide();
+                            $("#cta3").fadeIn(500);
                         });
 
-                    }
-                } else {
+                    });
 
                 }
 
